@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2o0rqg0g3a6b"]
+
+[ext_resource type="Texture2D" uid="uid://dykm3dblq04jl" path="res://game/asset/letter_a.png" id="1_2rapr"]
+[ext_resource type="Script" path="res://game/script/player.gd" id="2_3lmlp"]
+[ext_resource type="Texture2D" uid="uid://h6x8d2bhjsgg" path="res://game/asset/player.png" id="3_amodq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ac4a"]
+
+[sub_resource type="Animation" id="Animation_wksjq"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sc6t3"]
+_data = {
+"jump": SubResource("Animation_wksjq")
+}
+
+[node name="Game" type="Node2D"]
+
+[node name="BadGuys" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BadGuys"]
+position = Vector2(407, 290)
+texture = ExtResource("1_2rapr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BadGuys"]
+position = Vector2(270, 232)
+texture = ExtResource("1_2rapr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BadGuys"]
+position = Vector2(385, 406)
+texture = ExtResource("1_2rapr")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(40, 400)
+script = ExtResource("2_3lmlp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_amodq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_5ac4a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_sc6t3")
+}
