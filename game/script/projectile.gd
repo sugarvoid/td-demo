@@ -8,7 +8,7 @@ extends Area2D
 var parent_node: Node2D
 
 var projectile_ID: String
-var speed: float = 400
+var speed: float = 700
 var life: float = 3.0
 var damage_given: int
 var sprite_frame: int

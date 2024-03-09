@@ -1,12 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2o0rqg0g3a6b"]
+[gd_scene load_steps=6 format=3 uid="uid://b2o0rqg0g3a6b"]
 
 [ext_resource type="Texture2D" uid="uid://dykm3dblq04jl" path="res://game/asset/letter_a.png" id="1_2rapr"]
 [ext_resource type="Script" path="res://game/scene/game.gd" id="1_cpt4i"]
 [ext_resource type="Script" path="res://game/script/projectile_manager.gd" id="1_rwidc"]
 [ext_resource type="PackedScene" uid="uid://cio8w0ehkfnl1" path="res://game/scene/player.tscn" id="2_a3taa"]
+[ext_resource type="Texture2D" uid="uid://bx652abqcrd5x" path="res://game/asset/wall.png" id="5_q108e"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_cpt4i")
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
+position = Vector2(293, 568)
+texture = ExtResource("5_q108e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Wall"]
+position = Vector2(9, 293)
+rotation = 1.57079
+texture = ExtResource("5_q108e")
 
 [node name="ProjectileManager" type="Node2D" parent="."]
 script = ExtResource("1_rwidc")

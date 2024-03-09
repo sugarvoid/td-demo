@@ -19,7 +19,7 @@ func get_input():
 
 func _process(delta):
 	look_at(get_global_mouse_position())
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		$AnimationPlayer.play("jump")
 		
 	if Input.is_action_pressed("shoot"):
